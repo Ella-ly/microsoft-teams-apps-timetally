@@ -106,7 +106,7 @@ export class AxiosJWTDecorator {
         try {
             if (needAuthorizationHeader) {
                 config = await this.setupAuthorizationHeader(handleTokenAccessFailure, config);
-                console.log("config after: " + config)
+                console.log("config after: " + JSON.stringify(config))
             }
             console.log("axiosGet before")
             console.log("axiosGet url: " + url)
