@@ -144,7 +144,7 @@ export class AxiosJWTDecorator {
                     if (!config) {
                         config = axios.defaults;
                     }
-                    console.log("config: " + JSON.stringify(config))
+                    console.log("config before: " + JSON.stringify(config))
                     console.log("token: " + token)
                     config.headers["Authorization"] = `Bearer ${token}`;
                     resolve(config);
@@ -152,6 +152,8 @@ export class AxiosJWTDecorator {
                 failureCallback: handleTokenAccessFailure,
                 resources: []
             };
+            console.log("authTokenRequest: " + JSON.stringify(authTokenRequest))
+            console.log("config after: " + JSON.stringify(config))
             microsoftTeams.authentication.getAuthToken(authTokenRequest);
         });
     }
