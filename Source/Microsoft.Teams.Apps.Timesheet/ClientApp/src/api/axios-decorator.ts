@@ -145,6 +145,7 @@ export class AxiosJWTDecorator {
                         config = axios.defaults;
                     }
                     console.log("config: " + JSON.stringify(config))
+                    console.log("token: " + token)
                     config.headers["Authorization"] = `Bearer ${token}`;
                     resolve(config);
                 },
