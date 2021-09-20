@@ -106,7 +106,13 @@ export class AxiosJWTDecorator {
         try {
             if (needAuthorizationHeader) {
                 config = await this.setupAuthorizationHeader(handleTokenAccessFailure, config);
+                console.log("config after: " + config)
             }
+            console.log("axiosGet before")
+            console.log("axiosGet url: " + url)
+            const axiosGet = await axios.get(url, config);
+            console.log("axiosGet after")
+            console.log("axiosGet: "+JSON.stringify(axiosGet))
             return await axios.get(url, config);
         } catch (error) {
             return Promise.resolve(this.handleError(error));
